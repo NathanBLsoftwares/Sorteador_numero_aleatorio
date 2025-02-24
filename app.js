@@ -3,11 +3,23 @@ function sortear(){
     let de = parseInt(document.getElementById("de").value);
     let ate = parseInt(document.getElementById("ate").value);
 
+    if (de >= ate){
+        alert ('Não é possivel calcular o valor "do numero" é maior que "até o numero"');
+        return;
+    }
+
     let sorteado = [];
     let numero;
 
     for (let i = 0; i < quantidade; i++){
         numero = obterNumeroAleatorio(de, ate);
+       
+        if (numero <= quantidade){
+             alert('Quantidade de números é maior que o range escolhido, por favor modifique.');
+             return;
+        }
+           
+        
         while (sorteado.includes(numero)){
             numero = obterNumeroAleatorio(de, ate);
         }
